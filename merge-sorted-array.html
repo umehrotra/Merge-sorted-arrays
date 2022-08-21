@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge sorted array</title>
+</head>
+
+<body>
+    <script>
+        function mergeSortedArrays(array1, array2) {
+            const mergeArray = []
+            let array1Item = array1[0]
+            let array2Item = array2[0]
+            let i=1;
+            let j=1;
+
+            // Check input
+            if(array1.length ===0){
+                return array2
+            }
+            if(array2.length ===0){
+                return array1
+            }
+
+            // loop through the array and merge them
+            while(array1Item || array2Item){
+                
+            if(array1Item<array2Item){
+                mergeArray.push(array1Item)
+                array1Item=array1[i]
+                i++;
+            }else{
+                mergeArray.push(array2Item)
+                array2Item=array2[j]; 
+                j++;
+            }
+            }
+
+            return mergeArray;
+        }
+
+        let output = mergeSortedArrays([0, 3, 6], [4, 5, 8, 10])
+        console.log(output)
+    </script>
+</body>
+
+</html>
